@@ -10,9 +10,9 @@ using namespace std;
 
 typedef vector<Page> LISTPAGE;
 typedef vector<int> USEPAGE;
-LISTPAGE pages;
-USEPAGE usePageNumList;
-ofstream ofs("record.txt",ios::app);
+LISTPAGE pages;//内存页面
+USEPAGE usePageNumList;//待使用页面列表
+ofstream ofs("record.txt",ios::app);//记录内容保存
 
 void FIFO::init()
 {
@@ -62,7 +62,9 @@ void FIFO::display()
     ofs << "\n";
     cout << endl;
 }
-
+/**
+ * 搜素pageId是否已在内存
+ */
 bool FIFO::search(int pageId)
 {
     for (int i = 0; i < pages.size(); i++)
@@ -72,7 +74,9 @@ bool FIFO::search(int pageId)
     }
     return false;
 }
-
+/**
+ * 将pageId替换入countOldPoint（最久位置指针）
+ */
 void FIFO::replace(int pageId)
 {
     //置换在内存中呆的时间最久的页面
@@ -90,7 +94,7 @@ void FIFO::running()
     {
         countOldPoint = countOldPoint % PRO_MEMORY;
         int inPageId = usePageNumList[i];
-        int key = _getch();
+        int key = _getch();//等待回车
         if(key==13){
 
         if (search(inPageId))

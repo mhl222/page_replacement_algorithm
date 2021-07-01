@@ -17,11 +17,11 @@ public:
 
 
 private:
-    int PRO_MEMORY;
-    int countOldPoint;
-    int count;
-    int lackTime;
-    int length;
+    int PRO_MEMORY;//分配内存块
+    int countOldPoint;//最久位置指针
+    int count;//当前内存占用数
+    int lackTime;//缺页率
+    int length;//页面队列长度
 };
 
 #endif // FIFO_H
