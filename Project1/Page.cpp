@@ -19,6 +19,13 @@ void Page::inc(){
 void Page::setCount(int count) {
     this->count = count;
 }
+bool Page::getUsed() {
+    return this->used;
+}
+
+void  Page::setUsed(bool flag) {
+    this->used = flag;
+}
 
 Page::Page(int id) {
     this->id = id;

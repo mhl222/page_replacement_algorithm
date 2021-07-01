@@ -27,6 +27,9 @@
     <ClInclude Include="Page.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="CLOCK.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FIFO.cpp">
@@ -44,6 +47,9 @@
     <ClCompile Include="Page.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="CLOCK.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="record.txt">
@@ -53,6 +59,9 @@
       <Filter>资源文件</Filter>
     </Text>
     <Text Include="record_OPT.txt">
+      <Filter>资源文件</Filter>
+    </Text>
+    <Text Include="record_CLOCK.txt">
       <Filter>资源文件</Filter>
     </Text>
   </ItemGroup>

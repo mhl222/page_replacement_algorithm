@@ -21,7 +21,7 @@ public:
 
 private:
     int PRO_MEMORY;
-    int count;
+    int count;//当前内存占用数
     int lackTime;
     int length;
 

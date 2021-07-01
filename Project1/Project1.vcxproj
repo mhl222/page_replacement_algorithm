@@ -19,12 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CLOCK.h" />
     <ClInclude Include="FIFO.h" />
     <ClInclude Include="LRU.h" />
     <ClInclude Include="OPT.h" />
     <ClInclude Include="Page.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CLOCK.cpp" />
     <ClCompile Include="FIFO.cpp" />
     <ClCompile Include="LRU.cpp" />
     <ClCompile Include="main.cpp" />
@@ -33,6 +35,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="record.txt" />
+    <Text Include="record_CLOCK.txt" />
     <Text Include="record_LRU.txt" />
     <Text Include="record_OPT.txt" />
   </ItemGroup>

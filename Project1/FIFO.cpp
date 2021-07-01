@@ -1,7 +1,6 @@
 #include "Page.h"
 #include <iostream>
 #include <vector>
-#include<iostream>
 #include "FIFO.h"
 #include <fstream>
 #include<conio.h>
@@ -107,6 +106,7 @@ void FIFO::running()
             pages[count++].setId(inPageId);
             cout << "页号ID：" << inPageId << "正在放入内存中" << endl;
             ofs << "页号ID：" << inPageId << "正在放入内存中\n";
+            lackTime++;
         }
         else    //替换
         {
@@ -120,8 +120,8 @@ void FIFO::running()
         cout<<"请按enter键"<<endl;
     }
     }
-    cout << "缺页次数为：" << lackTime << ",缺页率为：" << (float) lackTime / (length - PRO_MEMORY) << endl;
-    ofs << "缺页次数为：" << lackTime << ",缺页率为：" << (float) lackTime / (length - PRO_MEMORY) << "\n";
+    cout << "缺页次数为：" << lackTime << ",缺页率为：" << (float) lackTime / length  << endl;
+    ofs << "缺页次数为：" << lackTime << ",缺页率为：" << (float) lackTime / length  << "\n";
     ofs << "============================================================";
     ofs.close();
 

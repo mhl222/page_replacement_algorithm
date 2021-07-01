@@ -2,26 +2,30 @@
 #include "FIFO.h"
 #include "LRU.h"
 #include "OPT.h"
+#include "CLOCK.h"
 
 using namespace std;
 
-//test
 
 int main() {
+    while (true) {
+        system("cls");
+        int select;
+        cout << "================页面置换算法================" << endl;
+        cout << "    " << "1--->FIFO" << "    ";
+        cout << "    " << "2--->LRU" << "    ";
+        cout << "    " << "3--->OPT" << "    ";
+        cout << "    " << "4--->CLOCK" << "    ";
+        cout << endl;
+        cout << "=============请选择页面置换算法=============" << endl;
 
-    int select;
-    cout << "================页面置换算法================" << endl;
-    cout <<"    "<< "1--->FIFO" << "    ";
-    cout <<"    "<< "2--->LRU" << "    ";
-    cout <<"    "<< "3--->OPT" << "    ";
-    cout<<endl;
-    cout << "=============请选择页面置换算法=============" << endl;
+        FIFO* repl = new FIFO();
+        LRU* lru = new LRU();
+        OPT* opt = new OPT();
+        CLOCK* clock = new CLOCK();
 
-    FIFO *repl = new FIFO();
-    LRU *lru = new LRU();
-    OPT *opt = new OPT();
-    cin >> select;
-    switch (select) {
+        cin >> select;
+        switch (select) {
         case 1:
             cout << "-----先进先出算法（FIFO）-----" << endl;
 
@@ -40,10 +44,20 @@ int main() {
             opt->init();
             opt->running();
             break;
-        default:
-            cout <<"请输入正确的选项标号！" << endl;
+        case 4:
+            cout << "-----最佳置换算法（CLOCK）-----" << endl;
+
+            clock->init();
+            clock->running();
             break;
+        default:
+            cout << "请输入正确的选项标号！" << endl;
+            break;
+
+        }
+        system("pause");
     }
+    
 
     return 0;
 }

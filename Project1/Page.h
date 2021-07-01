@@ -16,10 +16,15 @@ public:
     void inc();
 
     void setCount(int count);
+    
+    bool getUsed();
+
+    void setUsed(bool flag);
 
 private:
     int id;
-    int count;
+    int count;//LRU--¡·timeRefresh()
+    bool used;//CLOCK ->>used_flag
 };
 
-#endif // PAGE_H
+#endif 

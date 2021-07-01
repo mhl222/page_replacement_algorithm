@@ -84,6 +84,7 @@ void OPT::replace(int pageId, int currentPoint)
     /*int search_count[PRO_MEMORY];*/
 	vector<int> search_count(PRO_MEMORY);
 
+    //查询下一次替换的时间距离
     for (int i = 0; i < PRO_MEMORY; i++)
     {
         for (int j = currentPoint + 1; j < length; j++)
@@ -139,7 +140,7 @@ void OPT::running()
                 cout << "页号ID:" << pageId << "正在放入内存" << endl;
                 ofs_OPT << "页号ID:" << pageId << "正在放入内存\n";
                 count++;
-
+                lackTime++;
             }
             else
             {
@@ -156,8 +157,8 @@ void OPT::running()
         }
     }
 
-    cout << "缺页次数为：" << lackTime << ",缺页率为：" << (float) lackTime / (length - PRO_MEMORY) << endl;
-    ofs_OPT << "缺页次数为：" << lackTime << ",缺页率为：" << (float) lackTime / (length - PRO_MEMORY) << "\n";
+    cout << "缺页次数为：" << lackTime << ",缺页率为：" << (float) lackTime / length  << endl;
+    ofs_OPT << "缺页次数为：" << lackTime << ",缺页率为：" << (float) lackTime / length << "\n";
     ofs_OPT << "============================================================";
     ofs_OPT.close();
 }

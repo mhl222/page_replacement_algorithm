@@ -1,5 +1,4 @@
 #include <iostream>
-
 #include "Page.h"
 #include <fstream>
 #include "LRU.h"
@@ -89,6 +88,7 @@ bool LRU::search(int pageId)
 void LRU::replace(int pageId)
 {
     int max = 0, perCount, outPageId = -1, cur = 0;
+    //max 最大time，cur最大time的pageId,perCount 遍历指针，outPageId替换页面
     for (int i = 0; i < pages_LRU.size(); ++i)
     {
         perCount = pages_LRU[i].getCount();
@@ -100,7 +100,7 @@ void LRU::replace(int pageId)
     }
     outPageId = pages_LRU[cur].getId();
     timeRefresh();
-    reSet(cur);
+    reSet(cur);//time置零，时间清零
     pages_LRU[cur].setId(pageId);
 
     cout << "页号ID：" << pageId << "正在放入内存，页号ID：" << outPageId << "被替换出去" << endl;
@@ -132,7 +132,7 @@ void LRU::running()
                 timeRefresh();
                 reSet(count);
                 count++;
-
+                lackTime++;
             }
             else
             {
@@ -149,8 +149,8 @@ void LRU::running()
         }
     }
 
-    cout << "缺页次数为：" << lackTime << ",缺页率为：" << (float) lackTime / (length - PRO_MEMORY) << endl;
-    ofs_LRU << "缺页次数为：" << lackTime << ",缺页率为：" << (float) lackTime / (length - PRO_MEMORY) << "\n";
+    cout << "缺页次数为：" << lackTime << ",缺页率为：" << (float) lackTime / length  << endl;
+    ofs_LRU << "缺页次数为：" << lackTime << ",缺页率为：" << (float) lackTime / length  << "\n";
     ofs_LRU << "============================================================";
     ofs_LRU.close();
 }
